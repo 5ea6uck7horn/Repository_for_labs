@@ -6,5 +6,6 @@ increase = 0.03  # Ежемесячный рост цен
 minimal_needed_budget = 0
 for i in range(months):
     increased_spend = spend * ((1 + increase) ** i)
-    minimal_needed_budget += (increased_spend - salary)
-print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов: {minimal_needed_budget:.0f}")
+    minimal_needed_budget += increased_spend - salary
+print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(-1 * minimal_needed_budget // 1 * -1))
+
