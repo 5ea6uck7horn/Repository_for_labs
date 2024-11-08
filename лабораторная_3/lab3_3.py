@@ -1,23 +1,20 @@
 # функция count_letters
 def count_letters(string):
-    symb_dict = dict()
-    for symbol in string.casefold():
-        if symbol in symb_dict:
-            symb_dict[symbol] += 1
-        else:
-            symb_dict[symbol] = 1
-    not_letters = [' ', ',', '!', '—', ':', '.', '…', ';', '\n']
-    for i in not_letters:
-        del symb_dict[i]
-    return symb_dict
+    characters_dict = dict()
+    for character in string.casefold():
+        if character in characters_dict:
+            characters_dict[character] += 1
+        elif character.isalpha():
+            characters_dict[character] = 1
+    return characters_dict
 
 
 # функция calculate_frequency
-def calculate_frequency(symb_dict):
-    summed_letters = sum(symb_dict.values())
+def calculate_frequency(characters_dict):
+    summed_letters = sum(characters_dict.values())
     freq = dict()
-    for letter, value in symb_dict.items():
-        freq[letter] = round(value / summed_letters, 2)
+    for letter, value in characters_dict.items():
+        freq[letter] = value / summed_letters
     return freq
 
 
@@ -60,4 +57,4 @@ letters_count = count_letters(main_str)
 letters_freq = calculate_frequency(letters_count)
 
 for letter, value in letters_freq.items():
-    print(f'{letter}: {value}')
+    print(f'{letter}: {value:.2f}')
