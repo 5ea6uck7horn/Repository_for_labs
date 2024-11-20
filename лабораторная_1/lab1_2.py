@@ -1,4 +1,3 @@
-# TODO Найдите количество книг, которое можно разместить на дискете
 disk_volume_mb = 1.44 #мб
 pages_per_book = 100
 lines_per_page = 50
